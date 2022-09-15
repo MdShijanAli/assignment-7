@@ -1,8 +1,8 @@
 const display = document.getElementById("display");
 const question = document.getElementById("question");
-const startBtn = document.getElementById("start");
+const startBtn = document.getElementById("starts");
 const countdownOverlay = document.getElementById("countdown");
-const resultModal = document.getElementById("result");
+const resultModal = document.getElementById("hidden");
 const modalBackground = document.getElementById("modal-background");
 
 // variables
@@ -12,10 +12,11 @@ let startTime;
 let questionText = "";
 
 // Load and display question
-fetch("./texts.json")
-  .then((res) => res.json())
-  .then((data) => {
+fetch("texts.json")
+  .then(res => res.json())
+  .then(data => {
     questionText = data[Math.floor(Math.random() * data.length)];
+
     question.innerHTML = questionText;
   });
 
@@ -38,7 +39,7 @@ const typeController = (e) => {
     return;
   }
 
-  userText += newLetter;
+  userText = newLetter;
 
   const newLetterCorrect = validate(newLetter);
 
@@ -78,7 +79,7 @@ const gameOver = () => {
   // make it inactive
   display.classList.add("inactive");
   // show result
-  resultModal.innerHTML += `
+  resultModal.innerHTML = `
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
@@ -107,13 +108,13 @@ const start = () => {
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
-    countdownOverlay.innerHTML = '<h1>${count}</h1>';
+    countdownOverlay.innerHTML = `<h1>${count}</h1>`;
 
     // finished timer
     if (count == 0) {
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
-      countdownOverlay.style.display = "flex";
+      countdownOverlay.style.display = "none";
       display.classList.remove("inactive");
 
       clearInterval(startCountdown);
@@ -125,10 +126,11 @@ const start = () => {
 
 // START Countdown
 startBtn.addEventListener("click", start);
+// console.log('kaj to kortesa');
 
 // If history exists, show it
-displayHistory();
 
+displayHistory();
 // Show typing time spent
 setInterval(() => {
   const currentTime = new Date().getTime();
@@ -137,3 +139,5 @@ setInterval(() => {
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
 }, 1000);
+
+
