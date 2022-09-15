@@ -11,20 +11,58 @@
 
 <body>
 
-    <div>
-        <h1>Differences between local storage and session storage</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <p>localStorage is a property that allows JavaScript sites and apps to save key-value pairs in a web
-                    browser with no expiration date. This means the data stored in the browser will persist even after
-                    the browser window is closed.</p>
-            </div>
-            <div class="col-md-6">
-                <p>Session storage is a popular choice when it comes to storing data on a browser. It enables developers
-                    to save and retrieve different values. Unlike local storage, session storage only keeps data for a
-                    particular session. The data is cleared once the user closes the browser window.</p>
-            </div>
+    <div class="bg-danger">
+        <h1 class="text-center pt-5">Differences between local storage and session storage</h1>
+
+
+        <div class="container py-5">
+            <h3>Local storage</h3>
+            <p>localStorage is a property that allows JavaScript sites and apps to save key-value pairs in a web
+                browser with no expiration date. This means the data stored in the browser will persist even after
+                the browser window is closed.</p>
+
+
+            <h3>Session storage</h3>
+            <p>Session storage is a popular choice when it comes to storing data on a browser. It enables developers
+                to save and retrieve different values. Unlike local storage, session storage only keeps data for a
+                particular session. The data is cleared once the user closes the browser window.</p>
         </div>
+
+    </div>
+
+
+
+    <div class="bg-success">
+        <h1 class="text-center pt-5">Difference between Global scope and block scope</h1>
+
+
+        <div class="container py-5">
+            <h3>Global scope</h3>
+            <p>The Javascript global scope is the context where everything in a Javascript program executes by default.
+                This scope includes all variables, objects, and references that are not contained within a customized
+                scope defined by a programmer. Global scope is the entire Javascript execution environment.</p>
+
+
+            <h3>Block Scope</h3>
+            <p>Session storage is a popular choice when it comes to storing data on a browser. It enables developers
+                to save and retrieve different values. Unlike local storage, session storage only keeps data for a
+                particular session. The data is cleared once the user closes the browser windowBlock Level Scope: This
+                scope restricts the variable that is declared inside a specific block, from access by the outside of the
+                block. The let & const keyword facilitates the variables to be block scoped.</p>
+        </div>
+
+    </div>
+    <div class="bg-primary">
+        <h1 class="text-center pt-5">How event loop work on javascript?</h1>
+
+
+        <div class="container py-5">
+
+            <p>The Event Loop has one simple job — to monitor the Call Stack and the Callback Queue. If the Call Stack
+                is empty, the Event Loop will take the first event from the queue and will push it to the Call Stack,
+                which effectively runs it. Such an iteration is called a tick in the Event Loop</p>
+        </div>
+
     </div>
 
 
